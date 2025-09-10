@@ -1,0 +1,193 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f8f9fa;
+  color: #333;
+}
+
+/* Navbar */
+.navbar {
+  background-color: #222;
+  padding: 12px 0;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.navbar .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+  margin: auto;
+}
+
+.brand {
+  color: #fff;
+  font-size: 1.4rem;
+  font-weight: bold;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.brand:hover {
+  color: #a7cad1; /* celeste */
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 16px;
+}
+
+.nav-links a {
+  color: #ddd;
+  text-decoration: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+
+.nav-links a:hover {
+  background-color: #444;
+  color: #fff;
+}
+
+/* Estado activo */
+.nav-links a.router-link-exact-active {
+  background-color: #373c44; /* azul */
+  color: #fff !important;
+  font-weight: bold;
+}
+
+/* Contenedor principal */
+.container.main {
+  width: 90%;
+  margin: 20px auto;
+}
+
+/* Formularios */
+form {
+  background: white;
+  padding: 20px;
+  border-radius: 6px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  margin: auto;
+}
+
+form label {
+  font-weight: bold;
+  margin-bottom: 6px;
+  display: block;
+}
+
+form input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+form button {
+  background-color: #0d6efd;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+form button:hover {
+  background-color: #084298;
+}
+
+/* Mensajes */
+.error-message,
+.invalid-feedback {
+  color: red;
+  font-size: 0.9rem;
+}
+
+/* Botón hamburguesa: oculto en desktop, estilo básico */
+.nav-toggle {
+  display: none;
+  background: transparent;
+  border: 0;
+  color: #fff;
+  font-size: 1.6rem;
+  line-height: 1;
+  cursor: pointer;
+  padding: 6px 8px;
+  border-radius: 6px;
+}
+.nav-toggle:focus {
+  outline: 2px solid #555;
+  outline-offset: 2px;
+}
+
+/* ---------- RESPONSIVE ---------- */
+
+@media (max-width: 768px) {
+  .brand {
+    font-size: 1.25rem;
+  }
+
+  .nav-toggle {
+    display: inline-block;
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 56px; /* altura navbar */
+    right: 0;
+    left: 0;
+    background: #222;
+    flex-direction: column;
+    gap: 0;
+    border-top: 1px solid #333;
+    max-height: 0; /* oculta el contenido */
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+  }
+  /* cuando está abierto */
+  .nav-links.open {
+    max-height: 240px;
+  }
+
+  .nav-links li {
+    border-bottom: 1px solid #333;
+  }
+  .nav-links a {
+    display: block;
+    padding: 18px 20px;
+  }
+
+  /* área principal */
+  form {
+    padding: 16px;
+  }
+}
+
+/* Mobiles mini */
+@media (max-width: 400px) {
+  .brand {
+    font-size: 1.1rem;
+  }
+  .nav-links a {
+    padding: 12px 14px;
+    font-size: 0.95rem;
+  }
+  form input {
+    padding: 9px;
+  }
+  form button {
+    width: 100%;
+  }
+}
